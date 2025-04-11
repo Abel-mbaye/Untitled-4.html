@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lien avec code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .login-container, .message-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" onclick="showLogin()">Clique ici pour accéder</a>
+    <div id="login" class="login-container hidden">
+        <h2>Entrez le code</h2>
+        <input type="password" id="codeInput" placeholder="Code">
+        <br>
+        <button onclick="checkCode()">Connecter</button>
+    </div>
+    <div id="message" class="message-container hidden">
+        <h2>Tu es foutu maintenant, évite de cliquer sur n'importe quel lien</h2>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('login').classList.remove('hidden');
+        }
+
+        function checkCode() {
+            const code = document.getElementById('codeInput').value;
+            if (code === '2011') {
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('message').classList.remove('hidden');
+            } else {
+                alert('Code incorrect !');
+            }
+        }
+    </script>
+</body>
+</html>
